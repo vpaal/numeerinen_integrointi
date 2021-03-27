@@ -8,7 +8,9 @@ class Integrate:
         self.error = 0
         self.sign = 1
 
-    def single_integral(self, lower, upper, precision=10000):
+    def single_integral(self, lower, upper, precision):
+
+        # Use trapezoidal rule to approximate a single integral.
         if lower > upper:
             lower, upper = upper, lower
             self.sign = -1
@@ -36,6 +38,8 @@ class Integrate:
         return self.sign * integral
 
     def double_integral(self, limit_list, precision):
+
+        # Use trapezoidal rule to approximate a double integral.
         if type(limit_list) != list:
             raise IntegrationError("The bounds must be given as a list of lists")
         x_list, y_list = limit_list
